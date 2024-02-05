@@ -1,0 +1,471 @@
+ {% extends "base.html" %}
+ {% block body %}
+ <style>
+  .rounded-video {
+  border-radius: 15px; /* You can adjust the radius as per your preference */
+  overflow: hidden; /* Ensures the corners of the video are properly rounded */
+}
+
+ </style>
+ <script>
+  document.addEventListener("DOMContentLoaded", function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.play();
+      } else {
+        entry.target.pause();
+      }
+    });
+  }, { threshold: 0.5 }); // Trigger when 50% of the video is visible
+
+  var video = document.querySelector('.rounded-video');
+  observer.observe(video);
+});
+
+  </script>
+  
+  <body data-spy="scroll" data-target=".nav-link">
+
+    <!--//NAVBAR-->
+ 
+
+    <!-- content-->
+    <section class="section home-5-bg " id="home">
+        <div id="particles-js"></div>
+        <div class="bg-overlay"></div>
+        <div class="home-center">
+            <div class="home-desc-center">
+                <div class="container ">
+                    <div class=" row">
+                        <div class="col-lg-7">
+                            <div class="mt-40 text-center home-5-content" data-aos-delay="600">
+                            <div class="home-icon mb-4"><i class="mdi mdi-pinwheel mdi-spin text-white h1"></i>
+                              </div>
+                                <h1 class="display-4 fw-bold" data-aos="fade-up"><span class="text-brand">LEAN UX PLATFORM</span></h1><h2 class="text-white">Transforming User Experiences</h2>
+                                <p class="lead mt-2 mb-4 "data-aos="fade-up"  data-aos-delay="300"> Experience the future of UX design with the Lean UX platform. Start your journey today and revolutionize how you build products that delight users and drive business success.</p>
+                              
+                               
+                                 
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#C0C0C0"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#ffffff"
+          },
+          "polygon": {
+            "nb_sides": 5
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 20,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.22,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+            
+          },
+          "repulse": {
+            "distance": 200
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true,
+      "config_demo": {
+        "hide_card": false,
+        "background_color": "#b61924",
+        "background_image": "",
+        "background_position": "50% 50%",
+        "background_repeat": "no-repeat",
+        "background_size": "cover"
+      }
+    });
+    </script>
+        <!-- //Home Section-->
+    
+    <!--//content wrapper-->
+
+ <!-- Service-->
+ <section id="Service" class="full-height">
+  <div class="container border-badge-dark ">
+    <div class="row">
+      <div class="col-lg-8">
+        <h1 class="text-brand font-bold" data-aos="fade-up"> SERVICES</h1> 
+        <h3 class="text-white" data-aos="fade-up"data-aos-delay="300"> Service That We Provide</h1>
+      </div>
+    </div>
+  
+ <div class ="row">
+   <div class="col-md-4"data-aos="fade-up">
+      <div class="service p-4 bg-base rcorners1 shadow-effect"> 
+        <div class="iconbox  rcorners1 "> 
+          <i class="las la-feather"> </i>
+        </div>
+          <h5 class="mt-2 mb-2 text-white font-bold"data-aos="fade-up"data-aos-delay="300"> UX Evaluation </h5>
+          <p data-aos="fade-up"data-aos-delay="300">Elevate your UX evaluation to new heights. Discover the stories hidden within every blink, every smile, and every frown. </p>
+          <a href="#" class="link-custom"> Read More</a>
+          
+          
+   </div>
+</div>
+
+      <div class="col-md-4"data-aos="fade-up">
+        <div class="service p-4 bg-base rcorners1 shadow-effect"> 
+          <div class="iconbox  rcorners1 "> 
+          <i class=" las la-laptop-code"> </i>
+          </div>
+          <h5 class="mt-2 mb-2 text-white font-bold"data-aos="fade-up"data-aos-delay="300"> Analysis </h5>
+          <p data-aos="fade-up"data-aos-delay="300"> Unlock the Secrets. Craft Emotionally Engaging Experiences. Experience the Power of Eye and Facial Data Analysis. </p>
+          <a href="#" class="link-custom"> Read More</a>
+        </div>
+      </div>
+
+      <div class="col-md-4 "data-aos="fade-up">
+        <div class="service p-4 bg-base rcorners1 shadow-effect"> 
+          <div class="iconbox  rcorners1 "> 
+          <i class="las la-pencil-ruler"> </i>
+          </div>
+          <h5 class="mt-2 mb-2 text-white"data-aos="fade-up"data-aos-delay="300"> Feedback</h5>
+          <p data-aos="fade-up"data-aos-delay="300"> Unlock the Full Potential of Your Website: Harness the Power of Expert Feedback to Elevate Your Online Presence </p>
+          <a href="#" class="link-custom  "> Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ 
+<!-- Work-->
+</section>
+
+  <section id="Work" class="full-heightw px-lg-5">
+    <div class="container border-badge-dark">
+      <div class="row">
+        <div class="col-lg-8">
+          
+          <h1 class="text-brand"  data-aos="fade-up"data-aos-delay="300"> Our Work </h1>
+        </div>
+      </div>
+  
+      <div class ="row  ">
+        <div class="col-md-6  "data-aos="zoom-in">
+          <img class="rcorimg " src="/static/images/work.png" alt=""></img>
+          <div class="bg-base rcorimg shadow-effect"> 
+            <div class="card-custom-content link-custom ">
+              <h4 class="text-white"> Empowering Digital Growth</h4>
+              <p> Fueling Your Success with Tailor-Made Websites That Connect, Convert, and Thrive.Join us on a transformative journey as we empower your brand's digital growth.</P>
+                <a href="#" class="link-custom">Read More </a>
+
+
+            </div>
+           
+          </div>
+        </div>
+
+        <div class="col-md-6 "data-aos="zoom-in"data-aos-delay="300">
+          <img class="rcorimg   " src="/static/images/work2.jpg" alt=""></img>
+          <div class="bg-base rcorimg shadow-effect"> 
+            <div class="card-custom-content link-custom ">
+              <h4 class="text-white">Designing Experiences That Wow</h4>
+              <p> Where Creativity Meets Purpose, Redefining the Art of Web Development.Transforming Design into Experiences That Wow, Engage, and Enchant Your Audience</P>
+                <a href="#" class="link-custom">Read More </a>
+
+
+            </div>
+           
+          </div>
+        </div>
+
+        <div class="col-md-6  pad"data-aos="zoom-in">
+          <img class="  rcorimg  " src="/static/images/work3.jpg" alt=""></img>
+          <div class="bg-base rcorimg shadow-effect"> 
+            <div class="card-custom-content link-custom ">
+              <h4 class="text-white"> Elevating Online Presence</h4>
+              <p> From Ordinary to Extraordinary, Our Work Sets the Stage for Unforgettable Digital Journeys.illuminating Your Brand's Online Presence for Maximum Visibility, Connection, and Success</P>
+                <a href="#" class="link-custom">Read More </a>
+
+
+            </div>
+           
+          </div>
+        </div>
+
+        <div class="col-md-6 pad "data-aos="zoom-in"data-aos-delay="300">
+          <img class="  rcorimg  " src="/static/images/wrok4.png" alt=""></img>
+          <div class="bg-base rcorimg shadow-effect"> 
+            <div class="card-custom-content link-custom ">
+              <h4 class="text-brand">From Vision to Reality</h4>
+              <p>Creating Stunning Websites That Captivate, Inspire, and Leave a Lasting Impression.Turning Ambitious Visions into Realities That Captivate, Inspire, and Leave a Lasting Impression.</P>
+                <a href="#" class="link-custom">Read More </a>
+
+
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+
+
+
+   </section>
+<!-- Work-->
+
+<!-- About-->
+<section id="aboutus" class="full-heightw px-lg-5">
+  <div class="container border-badge-dark ">
+
+    <div class="row ">
+      <div class="col-lg-8 padabou">
+        <h1 class="text-brand" data-aos="fade-up"> About Us</h1> 
+        <h1 class="text-white" data-aos="fade-up"data-aos-delay="300"> LEAN UX PLATFORM</h1>
+      </div>
+    </div>
+
+    <div class="row gy-5 ">
+      <div class="col-lg-6">
+       
+        <div class="row gy-4">
+
+          <div class="col-12  pad" data-aos="fade-up" data-aos-delay="600">
+            <div class="bg-base p-4 rounded-bottom rounded-top rounded-end rounded-start shadow-effect">
+              <h5 class="text-white"> Research History</h5>
+                <p class="text-brand   mb-2 ">  </p>
+                <p class="mb-0">Jamil Hussain and others, represents a significant milestone in the field of user experience research and evaluation.The research focuses on developing a platform that captures and analyzes various modalities of user data, including eye-tracking data, facial expressions, and other relevant metrics to evaluate and enhance the user experience effectively.</p>
+            </div>
+          </div>
+
+          <div class="col-12  padabou" data-aos="fade-up" data-aos-delay="600">
+            <div class="bg-base p-4 rounded-bottom rounded-top rounded-end rounded-start shadow-effect">
+              <h5 class="text-white"> Vision Statement</h5>
+                
+                <p class="mb-0">Lean UX platform is to revolutionize the way user experiences are crafted, evaluated, and optimized, leveraging the power of eye and facial data. By integrating advanced eye-tracking and facial analysis techniques, the platform aims to provide unparalleled insights into user emotions, preferences, and engagement, ultimately creating captivating experiences that leave a lasting impact.</p>
+            </div>
+          </div>
+
+
+         
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+      
+        <div class="row gy-4">
+
+          <div class="col-12  pad" data-aos="fade-up" data-aos-delay="600">
+            <div class="bg-base p-4 rounded-bottom rounded-top rounded-end rounded-start shadow-effect">
+              <h5 class="text-white">Introduction</h5>
+                <p class="mb-0">Lean UX platform is user experience (UX) evaluation platform that provides physiological measurements for UX evaluation instead of traditional ones. By incorporating these techniques into UX research, designers can gain a deeper understanding of users' needs, emotions, and behavior to create products that are more engaging, satisfying, and effective</p>
+            </div>
+          </div>
+
+          <div class="col-12  padabou" data-aos="fade-up" data-aos-delay="600">
+            <div class="bg-base p-4 rounded-bottom rounded-top rounded-end rounded-start shadow-effect">
+              <h5 class="text-white">Our Goal</h5>
+                
+                <p class="mb-0">Our goal is to decode the language of the eyes and facial expressions, satisfaction, and emotional responses. With this data-driven approach, we strive to personalize experiences, tailoring them to individual users and fostering greater engagement.Our ultimate goal is to empower designers to create captivating, engaging, and personalized experiences that delight users and drive business success.</p>
+            </div>
+          </div>
+
+
+         
+        </div>
+         </div>
+    </div>
+    
+  </div>
+
+ </section>
+<!-- About-->
+<!-- How we Work -->
+<section id="ourwork" class="full-heightw px-lg-4">
+  <div class="container border-badge-dark">
+    <div class="row">
+      <div class="col-lg-5">
+        <h1 class="text-brand" data-aos="fade-up">How It Works</h1>
+        <p class="text-description">Our comprehensive video evaluation service offers an in-depth analysis of your website, providing valuable insights to enhance its performance and user experience. Through a detailed examination, we identify key areas for improvement, ranging from design and functionality to content and user engagement strategies. To learn more about our services or to get in touch for a personalized evaluation, please <a href="/contact">visit our 'Request' page</a>. Here, you'll find various ways to reach out, including email, phone, and a convenient online contact form. Our team is committed to helping you elevate your website's effectiveness and ensuring it meets your business goals and user needs.</p>
+      </div>
+      <div class="col-lg-7">
+        <video class="rounded-video" width="100%" height="500" controls>
+          <source src="/static/video/howitwork.mp4" type="video/mp4">
+          Sorry, your browser does not support the video tag or the video could not be loaded.
+        </video>
+      </div>
+      
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- How we Work -->
+
+<!--Review -->
+<section id="Service" class="full-heightw px-lg-5">
+
+  <div class="container ">
+
+    <div class="row  pb-4 "data-aos="fade-up">
+      <div class="col-lg-8">
+        <h1 class="text-brand  font-bold  " data-aos="fade-up"> Reviews</h1> 
+        <h1  class="text-white" data-aos="fade-up"data-aos-delay="300"> Our Users Reviews </h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 "data-aos="flip-left" data-aos-delay="300">
+          <div class="review bg-base p-4 rcorners1 shadow-effect">
+            <div class="text-brand "> 
+
+                <i class="la  la-star" ></i>
+                <i class="las la-star" ></i>
+                <i class="las la-star" ></i>
+                <i class="las la-star" ></i>
+                <i class="las la-star" ></i>
+            </div>
+            <p class="my-3 "> we are very grate full for this platform that this platform give us alot of best UX review of our website </p>
+            <div class="person">
+              <h5 class="mb-0 text-white"> Haider ALi </h5>
+              <p class="mb-0"> Twitter</p>
+            </div>
+          </div>
+
+      </div>
+      <div class="col-md-4 "data-aos="flip-left" data-aos-delay="600">
+        <div class="review bg-base p-4 rcorners1 shadow-effect">
+          <div class="text-brand "> 
+
+              <i class="las la-star" ></i>
+              <i class="las la-star" ></i>
+              <i class="las la-star" ></i>
+              <i class="las la-star" ></i>
+              <i class="las la-star" ></i>
+          </div>
+          <p class="my-3 "> we are very grate full for this platform that this platform give us alot of best UX review of our website </p>
+          <div class="person">
+            <h5 class="mb-0 text-white"> Muhammad Usman </h5>
+            <p class="mb-0"> Twitter</p>
+          </div>
+        </div>
+
+    </div>
+    <div class="col-md-4 "data-aos="flip-left" data-aos-delay="800">
+      <div class="review bg-base p-4 rcorners1 shadow-effect">
+        <div class="text-brand "> 
+
+            <i class="las la-star" ></i>
+            <i class="las la-star" ></i>
+            <i class="las la-star" ></i>
+            <i class="las la-star" ></i>
+            <i class="las la-star" ></i>
+        </div>
+        <p class="my-3 "> we are very grate full for this platform that this platform give us alot of best UX review of our website </p>
+        <div class="person">
+          <h5 class="mb-0 text-white"> Bilal </h5>
+          <p class="mb-0"> Twitter</p>
+        </div>
+      </div>
+
+  </div>
+  
+    </div>
+  </div>
+
+  </section>
+</body>
+
+{% endblock body %}

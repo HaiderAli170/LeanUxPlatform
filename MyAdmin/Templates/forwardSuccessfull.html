@@ -1,0 +1,18 @@
+{% extends "AdminBase.html" %}
+{% block body %}
+
+        <!-- partial -->
+       
+            
+          
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="col-lg-12 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Your Request is forwarded successfully!!</h4>
+                            <p>You can see request status by viewing Request Status section.</p>
+                            </p>
+                            <a href="{% url 'viewRequest' %}" class="btn btn-primary">Back</a>
+                  </div>
+{% endblock body %}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saved Data</title>
+</head>
+<body>
+    <h1>Saved Data</h1>
+    <ul>
+        {% for url in contact.url_set.all %}
+  {{ url.url }}
+{% endfor %}
+    </ul>
+</body>
+</html>

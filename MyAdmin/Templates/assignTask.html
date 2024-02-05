@@ -1,0 +1,51 @@
+{% extends "AdminBase.html" %}
+{% block body %}
+      
+        <!-- partial -->
+        <div class="main-panel " >
+          <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card" style="background-color: rgb(221, 231, 231);">
+                <div class="card-body" >
+                  <h4 class="card-title">Recent Projects</h4>
+                  <div class="table-responsive">
+                    <table class="table" style="background-color: rgb(120, 132, 141);">
+                      <thead>
+                        <tr>
+                          <th> Evaluator Name</th>
+                          <th> Website Name </th>
+                          <th> Project Status </th>
+                          <th> Due Date </th>
+                          <th> Action </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for evaluator in evaluators %}
+                        <tr>
+                          <td>
+                             {{evaluator.assigned_evaluator}}
+                          </td>
+                          <td> {{evaluator.website_name}}</td>
+                          <td>
+                            <label class="badge badge-gradient-success">DONE</label>
+                          </td>
+                          <td>  {{evaluator.due_date}}</td>
+                          <td>
+                          <a href="{% url 'delete_forwarded_data' evaluator.id %}" class="btn btn-gradient-light btn-sm">End Project</a></td>
+                       
+                        </tr>
+                      
+                      
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              </div>
+              
+            </div>
+          </div>
+         {% endblock body %}

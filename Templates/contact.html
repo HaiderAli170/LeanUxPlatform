@@ -1,0 +1,53 @@
+{% extends "base.html"%}
+{% block body%}
+  
+
+<section id="contact" class="full-height px-lg-5">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8 pb-4" data-aos="fade-up">
+          <h5 class="text-brand">Request Form</h5>
+          <h1 class="text-white">Provide Information</h1>
+        </div>
+        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+          <form method="post" action="{% url 'contactUs' %}" class="row g-lg-3 gy-3">
+            {% csrf_token %}
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group col-md-6">
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+            </div>
+            
+            <div id="inputFields">
+              <!-- Initial input field -->
+              <div class="d-flex form-group col-12">
+                <input type="url" class="form-control url-input" name="url" placeholder="Enter URL">
+              
+                <button type="button" id="addUrlInputButton" class="btn btn-success col-md-3">Add More URL</button>
+              </div>
+            </div>
+            
+            <!-- Add button to add more URL input fields -->
+         
+            
+            <div class="form-group col-12">
+              <input type="text" class="form-control" id="webName" name="webName" placeholder="Enter Website name">
+            </div>
+            <div class="form-group col-12">
+              <textarea  rows="4" class="form-control" id="desc" name="desc" placeholder="Enter your message"></textarea>
+            </div>
+            <div class="form-group col-12 d-grid"  id="showToast">
+              <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </div>
+        
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- //CONTACT -->
+
+{% endblock body%}
+</html>

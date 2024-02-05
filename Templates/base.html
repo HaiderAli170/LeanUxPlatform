@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lean UX Platform</title>
+    
+    <meta name="description" content="">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+     <link rel="stylesheet" href="/static/css/aos.css">
+     <link rel="stylesheet" href="/static/css/line-awesome.min.css">
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  
+   
+  </head>
+  
+    <!-- NAVBAR -->
+ <nav class="navbar navbar-expand-lg navbar-dark ">
+    <div class="container">
+        <a class="navbar-brand mx-lg-auto" href="#">
+          <span class="h3 font-bold text-brand" > Lean UX Platform</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse  ">
+          <ul class="navbar-nav  mx-lg-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Service">Service</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#aboutus">About</a>
+            </li> <li class="nav-item">
+              <a class="nav-link" href="#ourwork">How It Works</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Request</a>
+            </li>
+         
+          </ul>
+          
+        </div>
+      </div>
+     </nav>
+   
+ {% block body %}
+ {% endblock body %}
+
+  <!--Reviews-->
+   
+    <footer class="w-100 py-4 bg-base flex-shrink-0">
+      <div class="  container py-4">
+          <div class="row gy-4 gx-5">
+              <div class="col-lg-4 col-md-6">
+                  <h5 class="h1 text-white">LEAN UX PLATFORM</h5>
+              
+                  <p class="small text-muted mb-0">&copy; Copyrights. All rights reserved. </p>
+              </div>
+             
+              <div class="col-lg-2 col-md-6">
+                  <h5 class="text-white mb-3">Quick links</h5>
+                  <ul class="list-unstyled text-muted">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/contact">Contact</a></li>
+                      <li><a href="#">Service</a></li>
+                      <li><a href="#">FAQ</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-4 col-md-6 mx-lg-auto">
+               
+              </div>
+          </div>
+      </div>
+  </footer>
+  
+  <script src="/static/js/aos.js"></script>
+  <script src="/static/js/del.js"></script>
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+   
+ 
+<script>
+  // JavaScript to add and remove URL input fields
+  document.getElementById("addUrlInputButton").addEventListener("click", function() {
+      const inputFieldsContainer = document.getElementById("inputFields");
+  
+      // Create a new URL input field
+      const newInputField = document.createElement("div");
+      newInputField.className = "d-flex form-group col-12 ";
+  
+      const newInput = document.createElement("input");
+      newInput.type = "url";
+      newInput.name="url"
+      newInput.className = "form-control url-input";
+      newInput.placeholder = "Enter URL";
+  
+      const removeButton = document.createElement("button");
+      removeButton.type = "button";
+      removeButton.className = "btn btn-dark remove-input col-md-2";
+      removeButton.textContent = "Remove URL";
+  
+      // Append the new URL input field to the container
+      newInputField.appendChild(newInput);
+      newInputField.appendChild(removeButton);
+      inputFieldsContainer.appendChild(newInputField);
+  });
+  
+  // JavaScript to remove URL input fields
+  document.addEventListener("click", function(e) {
+      if (e.target && e.target.classList.contains("remove-input")) {
+          e.target.parentElement.remove();
+      }
+  });
+  </script>
+    <script>
+      $(document).ready(function() {
+          $('#showToast').click(function() {
+              $('.toast').toast('show');
+          });
+      });
+  </script>
+    
+</html>

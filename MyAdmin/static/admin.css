@@ -1,0 +1,48 @@
+body {
+    padding-top: 20px;
+}
+
+/* Style the sidebar */
+#sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+/* Style the navigation links in the sidebar */
+#sidebar .nav-link {
+    padding: 10px 20px;
+    border-radius: 0;
+    text-align: left;
+    color: #333;
+}
+
+/* Style the active navigation link in the sidebar */
+#sidebar .nav-link.active {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+/* Style the header */
+header {
+    padding: 15px 0;
+}
+
+/* Style the footer */
+footer {
+    background-color: #f8f9fa;
+    padding: 15px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Center align the footer text */
+footer p {
+    text-align: center;
+}
+
+/* Style the sections */
+section {
+    margin-top: 20px;
+}

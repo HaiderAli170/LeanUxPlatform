@@ -1,0 +1,62 @@
+<!-- face.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>UI Detetion Lean UX PlatForm</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <!-- Iframe to display specified URL -->
+        <iframe id="website-iframe" width="100%" height="900" frameborder="0"></iframe>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: end;">
+        <div style="position: relative; width: 640px; height: 480px;">
+            <img id="video-feed" width="300" height="300" style="position: absolute; bottom: 0; right: 0;">
+        </div>
+        <button onclick="generateReport('{{ forwarded_data_id }}')"
+            style="position: fixed; top: 10px; right: 10px;">Generate Report</button>
+    </div>
+
+
+
+
+    <script>
+        var specifiedUrl = '{{ website_url|slice:"2:-2" }}'; // Replace with your specified URL
+        $('#website-iframe').attr('src', specifiedUrl);
+
+        function generateReport(forwardedDataId) {
+            $.ajax({
+                url: '/evaluator/generate_bar_chart/',
+                type: 'GET',
+                data: {
+                    forwarded_data_id: forwardedDataId
+                },
+                success: function (data) {
+                    alert(data.status); // You can handle the response as needed
+                    window.location.href = '/evaluator/view_forwarded_request/'; // Navigate to the dashboard after successful report generation
+                },
+                error: function (error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        // Continuously update the video feed
+        function updateVideoFeed() {
+            $('#video-feed').attr('src', '/evaluator/face_recognition/');
+            setTimeout(updateVideoFeed, 1000); // Update every 1 second
+        }
+
+        // Start updating the video feed when the page loads
+        $(document).ready(function () {
+            updateVideoFeed();
+        });
+    </script>
+    </script>
+</body>
+
+</html>

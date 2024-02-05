@@ -1,0 +1,106 @@
+{% extends "AdminBase.html" %}
+{% block body %}
+<div class="main-panel">
+  <div class="content-wrapper">
+      
+              <div class="card">
+                  <div class="header">
+                    <div class="col-lg-10 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-body">
+                         
+                      <h2 class="text-black-50 "><b>Request Details</b></h2>
+                  </div>
+                  <div class="modal-body">
+                      
+                        
+                        {% csrf_token %}
+                          <div class="row">
+                              
+                              <div class="col-md-3">
+                                  <div class="form-group">
+                                      <label><b>Name :</b> {{ contact.name }}</label>
+                                      
+                                  </div>
+                              </div>
+                             
+                              <div class="col-md-4">
+                                  <div class="form-group">
+                                      <label for="exampleInputEmail1"><b>Email Address: </b>{{ contact.email }}</label>
+                                     
+                                  </div>
+                              </div>
+                              <div class="col-md-5">
+                                <div class="form-group">
+                                    <label><b>Website Name:</b> {{ contact.webName }}</label>
+                                   
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-md-5">
+                                  <div class="form-group">
+                                      <label><b>URL :</b> {{ contact.url }}</label>
+                                     
+                                  </div>
+                              </div>
+                  </div>
+                             <div class="row">
+                              <div class="col-md-5">
+                                  <div class="form-group">
+                                      <label><b>Description:</b> {{ contact.desc }}</label>
+                                      
+                                    
+                                  </div>
+                              </div>
+                          </div>
+
+                         
+
+                        
+
+                        
+                          <a href="{% url 'displayForwardRequest' contact.id  %}" class="btn btn-info btn-sm pull-right">Accept Request</a>
+                          
+                          <a href="{% url 'viewRequest' %}" class="btn btn-info btn-sm">Back</a>
+                          <div class="clearfix"></div>
+
+                    
+                  </div>
+              </div>
+          </div>
+        <!-- partial -->
+    
+        
+  
+                     
+
+
+                      <div class="text-danger">
+                      {% if messages %}
+                      <ul class="messages">
+                        {% for message in messages %}
+                          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                    </div>
+                        
+
+
+            
+           
+
+
+
+              
+   
+             
+                
+            
+
+        
+    
+          
+      {% endblock body %}

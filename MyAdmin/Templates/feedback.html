@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include Star Rating CSS -->
+    <link href="path/to/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .rating > span:hover:before {
+            content: "\f005";
+            position: absolute;
+            color: gold;
+        }
+        .rating > span {
+            cursor: pointer;
+        }
+        .star-rating .star {
+    cursor: pointer;
+    font-size: 15px;
+    color: gray;
+}
+
+.star-rating .star.yellow {
+    color: yellow;
+}
+        .bg{
+            background: url('/static/images/backkkkk.jpg') no-repeat center center fixed; 
+    background-size: cover;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-decoration: double;
+            font-size: x-large;
+            background: url('/static/images/backkkkk.jpg') no-repeat center center fixed; 
+    background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container ">
+        <div class="row justify-content-center text-center">
+        <div class="col-md-8 ">
+        <h2 class="text-secondary">Project Feedback Form</h2>
+        <form>
+            <!-- Project Name Field -->
+            <div class="form-group col-12 row">
+                <label for="projectName " class="text-secondary">Name</label>
+                <input type="text" class="form-control bg"projectName" placeholder="Enter Name" required>
+            </div>
+            <div class="form-group col-12 row">
+                <label for="projectName " class="text-secondary">Name of Project:</label>
+                <input type="text" class="form-control bg"projectName" placeholder="Enter project name" required>
+            </div>
+
+            <!-- Comments Field -->
+            <div class="form-group  col-12 row">
+                <label for="comments" class="text-secondary">Comments about Report:</label>
+                <textarea class="form-control bg" id="comments" rows="3" placeholder="Comments About Report" required></textarea>
+            </div>
+
+            <!-- Star Rating Field -->
+            <div class="form-group col-12 row bg">
+                <label class="text-secondary">Rate the Project:</label>
+                <div class="star-rating bg" >
+                    <span class="star">☆</span><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span>
+                </div>
+            </div>
+            <div class="col-md-8 row">
+                <button type="submit" class="btn btn-primary  ">Submit</button>
+            </div>
+            <!-- Submit Button -->
+          
+        </form>
+    </div>
+    </div>
+</div>
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        document.querySelectorAll('.star-rating .star').forEach(star => {
+    star.onclick = function() {
+        this.classList.toggle('yellow');
+    }
+});
+
+        // JavaScript for star rating
+        $(document).ready(function(){
+            $('.rating span').on('click', function(){
+                var onStar = parseInt($(this).data('value'), 10);
+                var stars = $(this).parent().children('span');
+                for (i = 0; i < stars.length; i++) {
+                    $(stars[i]).removeClass('selected');
+                }
+                for (i = 0; i < onStar; i++) {
+                    $(stars[i]).addClass('selected');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

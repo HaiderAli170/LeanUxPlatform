@@ -1,0 +1,277 @@
+<html>
+  <head>
+    <script src="https://app.gazerecorder.com/GazeCloudAPI.js"></script>
+    <script src="https://app.gazerecorder.com/GazeRecorderAPI.js"></script>
+    <script src="https://app.gazerecorder.com/GazePlayer.js"></script>
+
+    <script>
+      GazeRecorderAPI.OnNavigation = function (url) {
+        document.getElementById("url").value = url;
+      };
+
+      function EndRec() {
+        document.getElementById("navi").style.display = "none";
+        GazeRecorderAPI.StopRec();
+        GazeCloudAPI.StopEyeTracking();
+        SaveVideo();
+      }
+
+      function PlayRec() {
+        EndRec();
+        GazePlayer.SetCountainer(document.getElementById("playerdiv"));
+        console.log(GazePlayer.PlayResultsData,"playerdiv")
+
+        var SesionReplayData = GazeRecorderAPI.GetRecData();
+
+        GazePlayer.PlayResultsData(SesionReplayData);
+      }
+
+      function start() {
+        document.getElementById("navi").style.display = "block";
+        var url = document.getElementById("urlstart").value;
+
+        GazeCloudAPI.StartEyeTracking();
+        GazeCloudAPI.OnCalibrationComplete = function () {
+          GazeRecorderAPI.Rec(url);
+        };
+      }
+
+      function Navigate() {
+        var url = document.getElementById("url").value;
+        GazeRecorderAPI.Navigate(url);
+      }
+
+      function SaveVideo() {
+    // Get the recorded video data
+    var videoData = GazeRecorderAPI.GetRecData();
+
+    console.log('Video Data:', videoData); // Log videoData to the console
+
+    // Check if videoData is null or undefined
+    if (videoData) {
+        // Send the video data to the server
+        fetch('/evaluator/save_video/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token if using Django's CSRF protection
+            },
+            body: JSON.stringify({ videoData: videoData }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Video saved successfully:', data);
+        })
+        .catch(error => {
+            console.error('Error saving video:', error);
+        });
+    } else {
+        console.error('Video data is null or undefined. Skipping fetch request.');
+    }
+}
+// Helper function to get CSRF token from cookies
+function getCookie(name) {
+  var cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === name + '=') {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
+function saveVideoToLocal() {
+  var videoData = GazeRecorderAPI.GetRecData();
+  
+  if (videoData) {
+      var blob = new Blob([videoData], {type: 'video/mp4'}); 
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = 'recorded-video.mp4'; 
+      document.body.appendChild(a); 
+      a.click();
+      URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+  } else {
+      console.error('Video data is null or undefined.');
+  }
+}
+
+
+    </script>
+	<style>
+		button {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 17px;
+  border-radius: 1rem;
+  border: none;
+  position: relative;
+  background: #100720;
+  transition: 0.1s;
+}
+
+button::after {
+  content: '';
+  width: 10%;
+  height: 100%;
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
+  filter: blur(15px);
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+button:active {
+  transform: scale(0.9) rotate(3deg);
+  background: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
+  transition: 0.5s;
+}.form-control {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 100px;
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: lightblue;
+}
+
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  color: #fff;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+  color: lightblue;
+  transform: translateY(-30px);
+}
+	</style>
+  </head>
+
+  <body style="background-color: whitesmoke;">
+    <div
+      id="navi"
+      style="
+        display: none;
+        position: fixed;
+   
+        top: 0px;
+        left: 0px;
+		margin-top: 0px;
+        opacity: 0.8;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 90;
+      "
+    >
+      Url:<input
+	  type="text"
+	  id="url"
+	  name="name"
+	  required
+	  size="50"
+	  value="https://www.google.com"
+	  style="
+   
+		  width: 100px; /* Set the desired width */
+		  padding: 10px; /* Add some padding for better appearance */
+		  font-size: 16px;
+		  font-weight: bold;
+		  border: 2px solid #0074cc; /* Add a border with a color */
+		  border-radius: 5px; /* Add rounded corners */
+		  background-color: #f0f0f0; /* Light gray background color */
+	  "
+  />
+	  
+      <button onclick="Navigate();" type="button">Evaluate</button>
+      <button onclick="PlayRec()" type="button">
+        End
+      </button>
+    </div>
+
+    <h1 align="center">Eyes Tracking LEAN UX PLATFORM</h1>
+
+    <div
+      style="
+       
+        position: absolute;
+        top: 50%;
+
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+      "
+    >
+      <p align="center">URL</p>
+	  <input
+	  type="text"
+	  id="urlstart"
+	  name="name"
+	  required
+	  size="50"
+	  value="https://www.google.com"
+	  style="
+		  width: 300px; /* Set the desired width */
+		  padding: 10px; /* Add some padding for better appearance */
+		  font-size: 16px;
+		  font-weight: bold;
+		  border: 2px solid #0074cc; /* Add a border with a color */
+		  border-radius: 5px; /* Add rounded corners */
+		  background-color: #f0f0f0; /* Light gray background color */
+	  "
+  />
+  
+
+      <button onclick="start()" type="button">Start</button>
+    </div>
+    '
+
+    <div
+      id="playerdiv"
+      style="
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+      "
+    ></div>
+    <button onclick="saveVideoToLocal()" type="button">Save Video</button>
+
+  </body>
+</html>

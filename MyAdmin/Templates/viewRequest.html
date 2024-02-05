@@ -1,0 +1,146 @@
+{% extends "AdminBase.html" %}
+{% block body %}
+
+
+        <!-- partial -->
+        <script>
+          document.getElementById('closeFormButton').addEventListener('click', function() {
+            // Get a reference to the form
+            const form = document.getElementById('yourFormId'); // Replace 'yourFormId' with your actual form's ID
+        
+            // Hide the form
+            form.style.display = 'none'; // You can use 'display: none' or other CSS properties to hide it
+          });
+        </script>
+        <style>
+          .table-cell {
+            max-width: 150px; /* Adjust as needed */
+            word-wrap: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .table-cell:hover {
+            overflow: visible;
+            white-space: normal;
+          }
+        </style>
+
+        <div class="main-panel">
+       
+            <div class="content-wrapper ">
+              <h4 class="card-title">Request List</h4>
+
+              <div class="table-responsive">
+                <table class="table table-success" >
+                  <thead>
+                    <tr class="">
+                      <th class="text-primary">S.No</th>
+                      <th class="text-primary"> Name</th>
+                      <th class="text-primary"> Email</th>
+                      <th class="text-primary"> URL </th>
+                      <th class="text-primary"> Website Name </th>
+                      <th class="text-primary"> Description</th>
+                     
+                      <th style="text-align: center;"> Action </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for contact in contacts %}
+                    <tr>
+                      
+                      <td>{{ forloop.counter }}</td>
+                      <td class="table-cell" title="{{ contact.name }}">{{ contact.name }}</td>
+                      <td class="table-cell" title="{{ contact.email }}">{{ contact.email }}</td>
+                      <td class="table-cell" title="{{ contact.url }}">{{ contact.url }}</td>
+                      <td class="table-cell" title="{{ contact.webName }}">{{ contact.webName }}</td>
+                      <td class="table-cell" title="{{ contact.desc }}">{{ contact.desc }}</td>
+                      <!-- Other cells -->
+                      
+                      
+                      <td style="text-align: center;">     <!-- Button trigger modal -->
+                        
+                        <a href="{% url 'viewRequestDetails' contact.id  %}" class="btn bg-gradient-success btn-sm">View Details</a>
+
+                        <a href="{% url 'displayForwardRequest' contact.id  %}" class="btn bg-gradient-success btn-sm">Assign Request</a>
+                        
+                        <a href="{% url 'delete_request' contact.id  %}" class="btn btn-danger btn-sm">Reject</a>
+                      
+          
+                    
+                    </tr>
+                    {% endfor %}
+                    
+                    
+                    
+                    
+                   
+                  </tbody>
+                </table>
+              
+          
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered rounded" role="document">
+                    <div class="modal-body btn-primary rounded">
+                      <div class="modal-header rounded ">
+                        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true" class="ion-ios-close"></span>
+                        </button>
+                      </div>
+                      
+                        <div class="col-md-1 divider"></div>
+                        <div class="col-md">
+                          <div class="modal-body p-0">
+                            <h3 class="mb-4">Request</h3>
+                            <form action="/displayForwardRequest/" class="signup-form">
+                              
+                              {% for contact in contacts %}
+                             
+                              <div class="form-group">
+                                <label for="Name">Name: {{ contact.name }}</label>
+                              </div>
+                              <div class="form-group">
+                                <label for="Email">Email: {{ contact.email }}</label>
+                              </div>
+                              <div class="form-group">
+                                <label for="URL">URL: {{ contact.url }}</label>
+                              </div>
+                              <div class="form-group">
+                                <label for="Website Name">Website Name: {{ contact.webName }}</label>
+                              </div>
+                              <div class="form-group">
+                                <label for="Description" class="text-black">Description</label>
+                                <textarea class="form-control" rows="4">{{ contact.desc }}</textarea>
+                              </div>
+                              <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary rounded submit px-3">Accept</button>
+                              </div>
+                              <div class="form-group">
+                                <button type="button" id="cancelbtn" class="form-control btn btn-primary rounded submit px-3">Cancel</button>
+                              </div>
+
+                            
+                              {% endfor %}
+                              
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+
+
+
+
+
+   
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          
+      {% endblock body %}

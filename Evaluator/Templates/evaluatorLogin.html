@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <title>Evaluator Login</title>
+
+
+
+    <!-- // PLUGINS (css files) // -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="/static/assets/js/plugins/bootsnav_files/skins/color.css" rel="stylesheet">
+
+    <link href="/static/assets/js/plugins/bootsnav_files/css/animate.css" rel="stylesheet">
+
+    <link href="/static/assets/js/plugins/bootsnav_files/css/bootsnav.css" rel="stylesheet">
+
+    <link href="/static/assets/js/plugins/bootsnav_files/css/overwrite.css" rel="stylesheet">
+
+    <link href="/static/assets/js/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+
+    <link href="/static/assets/js/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
+
+    <link href="/static/assets/js/plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
+
+    <link href="/static/assets/js/plugins/Magnific-Popup-master/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
+
+    <!--// ICONS //-->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--// BOOTSTRAP & Main //-->
+
+    <link href="/static/assets/bootstrap-3.3.7/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/static/assets/css/main.css" rel="stylesheet">
+
+
+</head>
+
+
+
+<body>
+
+
+
+    <!--======================================== 
+
+           Preloader
+
+    ========================================-->
+
+
+
+
+    <!--======================================== 
+
+           Header
+
+    ========================================-->
+
+
+
+    <!--//** Navigation**//-->
+
+    <nav class="navbar navbar-default navbar-fixed white no-background bootsnav navbar-scrollspy" data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+
+
+        <div class="container">
+
+            <!-- Start Header Navigation -->
+
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+
+                    <i class="fa fa-bars"></i>
+
+                </button>
+
+                <a class="navbar-brand" href="/">
+
+                  <span class="h3 font-bold  text-white" > Lean UX Platform</span>
+
+                </a>
+
+            </div>
+
+            <!-- End Header Navigation -->
+
+        </div>
+
+    </nav>
+
+
+    <!--//** Banner**//-->
+
+    <section id="home">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div id="particles-js"></div>
+
+                <!-- Introduction -->
+
+                <div class="col-md-6 caption">
+
+                    <h1>Welcome To LEAN UX PLATFORM</h1>
+
+                 
+
+                    <p> Evaluate Website , Give you Attrative Desigen</p>
+
+                    <a href="/" class="btn btn-transparent">Get Started</a>
+
+                   
+
+                </div>
+
+                <!-- Sign Up -->
+
+                <div class="col-md-5 col-md">
+
+                    <form class="signup-form" method="post" action="/evaluator/">
+                        {% csrf_token %}
+
+                        <h2 class="text-center">Login</h2>
+
+                        <hr>
+
+                        
+
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" name="username" placeholder="User Name" required="required">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+
+                        </div>
+
+                        <div class="form-group text-center">
+
+                            <button type="submit" class="btn btn-blue btn-block">Login</button>
+
+                        </div>
+                        <br>
+                        <div class="text-center text-info"> {% if messages %}
+                                                <ul class="messages">
+                                                    {% for message in messages %}
+                                                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}</div>
+                    </form>
+
+                </div>
+            </div>
+            </div>
+    </section>
+    <footer class="w-100 py-4 flex-shrink-4">
+      <div class="container py-4">
+          <div class="row gy-4 gx-5">
+              <div class="col-lg-4 col-md-6">
+                  <h5 class="h1 text-white">LEAN UX PLATFORM</h5>
+              
+                  <p class="small text-muted mb-0">&copy; Copyrights. All rights reserved. </p>
+              </div>
+             
+              <div class="col-lg-2 col-md-6">
+                  <h5 class="text-white mb-3">Quick links</h5>
+                  <ul class="list-unstyled text-muted">
+                      <li><a href="">Home</a></li>
+                      <li><a href="/contact">Contact</a></li>
+                      <li><a href="#">Service</a></li>
+                      <li><a href="#">FAQ</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-4 col-md-6 mx-lg-auto">
+                  <h5 class="text-white mb-3">Newsletter</h5>
+      
+                  <form action="#">
+                      <div class="input-group mb-3">
+                          <input class="form-control" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                          <button class="btn btn-primary" id="button-addon2" type="button"><i class="fas fa-paper-plane"></i></button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+
+    <!--======================================== 
+
+           About Us
+
+    ========================================-->
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <script src="/static/assets/bootstrap-3.3.7/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    <script src="/static/assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+
+    <script src="/static/assets/js/plugins/bootsnav_files/js/bootsnav.js"></script>
+
+    <script src="/static/assets/js/plugins/typed.js-master/typed.js-master/dist/typed.min.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <script src="/static//js/plugins/Magnific-Popup-master/Magnific-Popup-master/dist/jquery.magnific-popup.js"></script>
+
+    <script src="/static/assets/js/plugins/particles.js-master/particles.js-master/particles.min.js"></script>
+
+    <script src="/static/assets/js/particales-script.js"></script>
+
+    <script src="/static/assets/js/main.js"></script>
+
+</body>
+
+
+
+</html>

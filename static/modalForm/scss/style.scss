@@ -1,0 +1,300 @@
+@import 'bootstrap/bootstrap';
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+
+$font-primary: 'Poppins',Arial, sans-serif;
+
+$primary: #f9e090;
+
+@mixin gradient-background(){
+	background: rgba(200,89,255,1);
+	background: -moz-linear-gradient(45deg, rgba(200,89,255,1) 0%, rgba(255,171,140,1) 100%);
+	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(200,89,255,1)), color-stop(100%, rgba(255,171,140,1)));
+	background: -webkit-linear-gradient(45deg, rgba(200,89,255,1) 0%, rgba(255,171,140,1) 100%);
+	background: -o-linear-gradient(45deg, rgba(200,89,255,1) 0%, rgba(255,171,140,1) 100%);
+	background: -ms-linear-gradient(45deg, rgba(200,89,255,1) 0%, rgba(255,171,140,1) 100%);
+	background: linear-gradient(45deg, rgba(200,89,255,1) 0%, rgba(255,171,140,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c859ff', endColorstr='#ffab8c', GradientType=1 );
+}
+
+body{
+	font-family: $font-primary;
+	font-size: 15px;
+	line-height: 1.8;
+	font-weight: normal;
+}
+a {
+	transition: .3s all ease;
+	color: $primary;
+	&:hover, &:focus {
+		text-decoration: none !important;
+		outline: none !important;
+		box-shadow: none;
+	}
+}
+button {
+	transition: .3s all ease;
+	&:hover, &:focus {
+		text-decoration: none !important;
+		outline: none !important;
+		box-shadow: none !important;
+	}
+}
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+	line-height: 1.5;
+	font-weight: 400;
+	font-family: $font-primary;
+}
+
+
+//COVER BG
+.img,
+.blog-img,
+.user-img{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.ftco-footer-social {
+	li {
+		list-style: none;
+		margin: 0 10px 0 0;
+		display: inline-block;
+		a {
+			height: 40px;
+			width: 40px;
+			display: block;
+			background: rgba($black, .05);
+			border-radius: 50%;
+			position: relative;
+			span {
+				position: absolute;
+				font-size: 20px;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+}
+
+
+//FORM CONTROL
+.form-control {
+	height: 52px;
+	background: $white;
+	color: $black;
+	font-size: 15px;
+	border-radius: 5px;
+	box-shadow: none;
+	border: 1px solid rgba(0,0,0,.1);
+	&:focus, &:active {
+		outline: none !important;
+		box-shadow: none;
+		border: 1px solid $primary;
+	}
+}
+textarea.form-control {
+	height: inherit!important;
+}
+
+//BUTTON
+.btn {
+	cursor: pointer;
+	@include border-radius(40px);
+	box-shadow: none!important;
+	font-size: 15px;
+	&:hover, &:active, &:focus {
+		outline: none;
+	}
+	&.btn-primary {
+		background: $primary !important;
+		border: 1px solid $primary !important;
+		color: $black !important;
+		&:hover {
+			border: 1px solid $primary;
+			background: transparent;
+			color :$primary;
+		}
+		&.btn-outline-primary {
+			border: 1px solid $primary;
+			background: transparent;
+			color :$primary;
+			&:hover {
+				border: 1px solid transparent;
+				background: $primary;
+				color :$white;
+			}
+		}
+	}
+}
+
+
+.ftco-section{
+	background: $white;
+	h2{
+		margin-bottom: 0;
+	}
+}
+
+
+//MODAL 01
+.modal{
+	background: rgba(0,0,0,.5);
+}
+.modal-dialog{
+	max-width: 900px;
+}
+.modal-content{
+	border: none;
+	position: relative;
+	padding: 50px !important;
+	font-size: 14px;
+	color:rgba(255,255,255,.8);
+	@include gradient-background();
+	-webkit-box-shadow: 0px 10px 34px -15px rgba(0,0,0,0.24);
+	-moz-box-shadow: 0px 10px 34px -15px rgba(0,0,0,0.24);
+	box-shadow: 0px 10px 34px -15px rgba(0,0,0,0.24);
+	h3{
+		color: $white;
+		font-weight: 300;
+	}
+	.modal-header{
+		padding: 0;
+		border: none;
+	}
+	button.close{
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 0;
+		margin: 0;
+		width: 40px;
+		height: 40px;
+		z-index: 1;
+		text-shadow: none;
+		background: rgba(0,0,0,.1);
+	}
+	.modal-body{
+		border: none;
+	}
+	.modal-footer{
+		border: none;
+		background: #f8f8f8;
+	}
+	.form-control{
+		background: transparent;
+		border: none;
+		padding: 0;
+		height: 40px;
+		color: rgba(255,255,255,.8);
+		border-bottom: 1px solid rgba(255,255,255,.2);
+		border-radius: 0;
+		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		  color: rgba(255,255,255,.8) !important;
+		}
+		&::-moz-placeholder { /* Firefox 19+ */
+		  color: rgba(255,255,255,.8) !important;
+		}
+		&:-ms-input-placeholder { /* IE 10+ */
+		  color: rgba(255,255,255,.8) !important;
+		}
+		&:-moz-placeholder { /* Firefox 18- */
+		  color: rgba(255,255,255,.8) !important;
+		}
+	}
+	.btn{
+		font-weight: 500;
+		height: 52px;
+		.btn-primary{
+			background: $primary !important;
+		}
+	}
+
+	.social{
+		width: 100%;
+		a{
+			width: 100%;
+			display: block;
+			border: 1px solid rgba(255,255,255,.4);
+			color: $black;
+			background: $white;
+			&:hover{
+				background: transparent;
+				color: $white;
+			}
+		}
+	}
+}
+
+
+.divider{
+	position: relative;
+	&:after{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		content: '';
+		width: 1px;
+		height: 100%;
+		background: rgba(255,255,255,.2);
+		margin: 0 auto;
+	}
+}
+
+
+.form-check{
+	padding: 0;
+}
+.fill-checkbox{
+	--color: #f9e090;
+
+	.fill-control-input{
+		display: none;
+		&:checked~.fill-control-indicator{
+			background-color: var(--color);
+			border-color: var(--color);
+			background-size: 80%;
+		}
+		&:checked~.fill-control-description{
+			color: $white;
+		}
+	}
+	.fill-control-indicator{
+		border-radius: 3px;
+		display: inline-block;
+		position: absolute;
+		top: 5px;
+		left: 0;
+		width: 16px;
+		height: 16px;
+		border: 1px solid rgba(255,255,255,.4);
+		transition: .1s;
+		background: transperent;
+		background-size: 0%;
+		background-position: center;
+		background-repeat: no-repeat;
+		content: 'hey';
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+	}
+	.fill-control-description{
+		color: rgba(255,255,255,.6);
+	}
+}
+.form-check{
+	&.disabled{
+		.fill-checkbox{
+			--color: rgba(255,255,255,.4);
+			.fill-control-description{
+				color: rgba(255,255,255,.4);
+			}
+		}
+	}
+}

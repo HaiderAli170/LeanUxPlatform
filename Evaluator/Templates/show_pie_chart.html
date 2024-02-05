@@ -1,0 +1,22 @@
+<!-- evaluator/templates/show_chart.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emotion Distribution</title>
+</head>
+<body>
+
+<h1>Emotion Distribution</h1>
+
+{% for data in emotion_data %}
+    <div>
+        <p><strong>Emotion Chart:</strong></p>
+        <img src="{{ data.get_chart_image }}" alt="Emotion Chart">
+        <hr>
+    </div>
+{% endfor %}
+
+</body>
+</html>

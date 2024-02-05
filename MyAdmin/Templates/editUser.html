@@ -1,0 +1,116 @@
+{% extends "AdminBase.html" %}
+{% block body %}
+<div class="main-panel">
+  <div class="content-wrapper">
+      
+              <div class="card">
+                  <div class="header">
+                    <div class="col-lg-10 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-body">
+                         
+                      <h2 class="text-black-50 "><b>Edit Profile</b></h2>
+                  </div>
+                  <div class="modal-body">
+                      <form method="post" action="{% url 'edit_user' user.id %}">
+                        {% csrf_token %}
+                          <div class="row">
+                              
+                              <div class="col-md-3">
+                                  <div class="form-group">
+                                      <label>Username</label>
+                                      <input type="text" class="form-control" name="username" value="{{ user.username }}" required>
+                                  </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" value="{{ user.password }}" required>
+                                </div>
+                            </div>
+                              <div class="col-md-4">
+                                  <div class="form-group">
+                                      <label for="exampleInputEmail1">Email address</label>
+                                      <input type="email" class="form-control"  name="email" value="{{ user.email }}" required>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-md-5">
+                                  <div class="form-group">
+                                      <label>First Name</label>
+                                      <input type="text" class="form-control" name="first_name" value="{{ user.first_name }}" required>
+                                  </div>
+                              </div>
+                              <div class="col-md-5">
+                                  <div class="form-group">
+                                      <label>Last Name</label>
+                                      <input type="text" class="form-control" name="last_name" value="{{ user.last_name }}" required>
+                                  </div>
+                              </div>
+                          </div>
+
+                         
+
+                          <div class="row">
+                              <div class="col-md-10">
+                                  <div class="form-group">
+      
+                                  <label>Select Designation:</label>
+                                   <select class="form-control" id="job_position" name="job_position">
+                                  {% for position in job_positions %}
+                                      <option value="{{ position }}" {% if user.job_position == position %}selected{% endif %}>
+                                          {{ position }}
+                                      </option>
+                                  {% endfor %}
+                                  </select>
+                              </div>
+                              
+                          </div>
+                          </div>
+
+                          
+                          <button type="submit" class="btn btn-info btn-sm pull-right">Update Profile</button>
+                          <a href="{% url 'manageEvaluator' %}" class="btn btn-gradient-info btn-sm">cancel</a>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+         
+        <!-- partial -->
+    
+        
+  
+                     
+
+
+                      <div class="text-danger">
+                      {% if messages %}
+                      <ul class="messages">
+                        {% for message in messages %}
+                          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                    </div>
+                        
+
+
+              </div>
+           
+
+
+
+              
+   
+                </div>
+                
+              </div>
+              
+            </div>
+
+        
+    
+          
+      {% endblock body %}

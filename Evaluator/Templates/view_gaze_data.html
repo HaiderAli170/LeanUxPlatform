@@ -1,0 +1,33 @@
+
+<!-- eyetracking_app/templates/view_gaze_data.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Gaze Data</title>
+</head>
+<body>
+
+<h1>Gaze Data Records</h1>
+
+<table border="1">
+    <tr>
+        <th>Gaze X</th>
+        <th>Gaze Y</th>
+        <th>Head X</th>
+        <th>Head Y</th>
+        <th>Timestamp</th>
+    </tr>
+    {% for data in gaze_data %}
+        <tr>
+            <td>{{ data.gaze_x }}</td>
+            <td>{{ data.gaze_y }}</td>
+            <td>{{ data.head_x }}</td>
+            <td>{{ data.head_y }}</td>
+            <td>{{ data.timestamp }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
